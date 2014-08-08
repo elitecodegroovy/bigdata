@@ -1,19 +1,70 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
-	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 
 	<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />
     
     <bean class="com.ispring.common.controller.RevenueReportController" />
     
-    <bean class="org.springframework.web.servlet.view.XmlViewResolver">
-	   <property name="location">
-	       <value>/WEB-INF/spring-excel-views.xml</value>
-	   </property>
-	   <property name="order" value="0" />
-	</bean>
-    
+    <!--<bean class="org.springframework.web.servlet.view.XmlViewResolver">-->
+	   <!--<property name="location">-->
+	       <!--<value>/WEB-INF/spring-excel-views.xml</value>-->
+	   <!--</property>-->
+	   <!--<property name="order" value="0" />-->
+	<!--</bean>-->
+
+    <!--<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">-->
+        <!--<property name="order" value="1" />-->
+        <!--<property name="ignoreAcceptHeader" value="true" />-->
+        <!--<property name="defaultContentType" value="text/html" />-->
+        <!--<property name="favorParameter" value="false" />-->
+        <!--<property name="mediaTypes">-->
+            <!--<map>-->
+                <!--<entry key="html" value="text/html" />-->
+                <!--<entry key="json" value="application/json" />-->
+                <!--<entry key="xml" value="application/xml" />-->
+                <!--<entry key="xls" value="application/vnd.ms-excel"/>-->
+            <!--</map>-->
+        <!--</property>-->
+        <!--<property name="defaultViews">-->
+            <!--<list>-->
+                <!-- Renders JSON View -->
+                <!--<bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />-->
+
+                <!-- Renders XML View -->
+                <!--<bean class="org.springframework.web.servlet.view.xml.MarshallingView">-->
+                    <!--<constructor-arg>-->
+                        <!--<bean class="org.springframework.oxm.jaxb.Jaxb2Marshaller">-->
+                            <!--<property name="packagesToScan">-->
+                                <!--<list>-->
+                                    <!--<value>com.ispring.common</value>-->
+                                <!--</list>-->
+                            <!--</property>-->
+                        <!--</bean>-->
+                    <!--</constructor-arg>-->
+                <!--</bean>-->
+
+                <!-- Renders EXCEL View -->
+                <!--<bean class="com.unioncast." />-->
+            <!--</list>-->
+        <!--</property>-->
+        <!--<property name="viewResolvers">-->
+            <!--<list>-->
+                <!--&lt;!&ndash; Renders Freemarker View &ndash;&gt;-->
+                <!--<bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">-->
+                    <!--<property name="cache" value="true" />-->
+                    <!--<property name="prefix" value="" />-->
+                    <!--<property name="suffix" value=".ftl" />-->
+                    <!--<property name="exposeSpringMacroHelpers" value="true" />-->
+                    <!--<property name="contentType" value="text/html;charset=UTF-8" />-->
+                    <!--<property name="exposeRequestAttributes" value="true" />-->
+                    <!--<property name="exposeSessionAttributes" value="true" />-->
+                <!--</bean>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
 	<bean id="viewResolver"
       	class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
         <property name="prefix">
