@@ -260,6 +260,35 @@
               <version>2.0.3.Final</version>
           </dependency>
 
+          <!--hibernate and JPI-->
+          <dependency>
+              <groupId>org.hibernate.javax.persistence</groupId>
+              <artifactId>hibernate-jpa-2.0-api</artifactId>
+              <version>1.0.1.Final</version>
+          </dependency>
+          <dependency>
+              <groupId>org.hibernate</groupId>
+              <artifactId>hibernate-core</artifactId>
+              <version>4.1.9.Final</version>
+              <type>jar</type>
+              <scope>compile</scope>
+          </dependency>
+
+          <dependency>
+              <groupId>org.hibernate</groupId>
+              <artifactId>hibernate-ehcache</artifactId>
+              <version>4.1.9.Final</version>
+              <type>jar</type>
+              <scope>compile</scope>
+          </dependency>
+          <dependency>
+              <groupId>org.hibernate.common</groupId>
+              <artifactId>hibernate-commons-annotations</artifactId>
+              <version>4.0.1.Final</version>
+              <type>jar</type>
+              <scope>compile</scope>
+          </dependency>
+
 		  <!--spark core lib-->
 		  <dependency>
 			  <groupId>org.apache.spark</groupId>
@@ -292,6 +321,7 @@
             <id>JBoss repository</id>
             <url>http://repository.jboss.org/nexus/content/groups/public/</url>
         </repository>
+        <!-- spring repo -->
         <repository>
             <id>spring io</id>
             <url>http://repo.spring.io/libs-milestone/</url>
