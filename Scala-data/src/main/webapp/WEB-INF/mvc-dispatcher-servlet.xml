@@ -40,17 +40,22 @@
         <property name="defaultViews">
             <list>
                 <!-- Renders JSON View -->
-                <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
+                <!--<bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />-->
 
                 <!-- Renders XML View -->
                 <bean class="org.springframework.web.servlet.view.xml.MarshallingView">
                     <constructor-arg>
                         <bean class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
-                            <property name="packagesToScan">
-                                <list>
-                                    <value>com.ispring.model</value>
-                                </list>
-                            </property>
+                            <!--<property name="packagesToScan">-->
+                                <!--<list>-->
+                                    <!--<value>com.ispring.model</value>-->
+                                <!--</list>-->
+                            <!--</property>-->
+                                <property name="classesToBeBound">
+                                    <list>
+                                        <value>com.ispring.model.hr.Fruit</value>
+                                    </list>
+                                </property>
                         </bean>
                     </constructor-arg>
                 </bean>
