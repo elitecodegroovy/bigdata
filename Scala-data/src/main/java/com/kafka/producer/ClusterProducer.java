@@ -2,9 +2,13 @@ package com.kafka.producer;
 
 import java.util.*;
 
+import com.kafka.utils.PropertiesParser;
+import com.kafka.utils.PropertiesSettings;
 import kafka.javaapi.producer.Producer;
 import kafka.producer.KeyedMessage;
 import kafka.producer.ProducerConfig;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  * @author JohnLiu
@@ -12,18 +16,17 @@ import kafka.producer.ProducerConfig;
  * @date 2014/8/23
  */
 public class ClusterProducer {
-
+    private static final Log log = LogFactory.getLog(ClusterProducer.class);
     public void sendData(){
-        long events = Long.parseLong("12");
+        long events = Long.parseLong("10");
 
         Random rnd = new Random();
 
-        Properties props = new Properties();
-        props.put("metadata.broker.list", "hadoop-master:9092,machine-0:9092");
-        props.put("serializer.class", "kafka.serializer.StringEncoder");
-        props.put("partitioner.class", "com.kafka.producer.SimplePartitioner");
-        props.put("request.required.acks", "1");
-
+        Properties props = PropertiesParser.getProperties(PropertiesSettings.PRODUCER_FILE_NAME);
+        if(props == null){
+            log.error("can't load specified file "+ PropertiesSettings.PRODUCER_FILE_NAME);
+            return;
+        }
         ProducerConfig config = new ProducerConfig(props);
 
         Producer<String, String> producer = new Producer<String, String>(config);
@@ -32,14 +35,16 @@ public class ClusterProducer {
             long runtime = new Date().getTime();
             String ip = "192.168.2." + rnd.nextInt(255);
             String msg = runtime +  ",www.firefox.com, " + ip;
+            log.info("set data:"+ msg);
             //send to the topic "cluster_topic"
-            KeyedMessage<String, String> data = new KeyedMessage<String, String>("cluster_topic", ip, msg);
+            KeyedMessage<String, String> data = new KeyedMessage<String,
+                                                    String>(PropertiesSettings.TOPIC_NAME, ip, msg);
             producer.send(data);
         }
         producer.close();
     }
 
     public static void main(String[] args) {
-           new ClusterProducer().sendData();
+        new ClusterProducer().sendData();
     }
 }

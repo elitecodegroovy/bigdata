@@ -22,7 +22,5 @@ public class ConsumerThread implements Runnable{
         while (it.hasNext())
             System.out.println("--------------" +
                            "Thread " + threadNumber + ", message:" + new String(it.next().message()));
-        System.out.println("\n-------------------------------------------------" +
-                "Shutting down Thread: " + threadNumber);
     }
 }
