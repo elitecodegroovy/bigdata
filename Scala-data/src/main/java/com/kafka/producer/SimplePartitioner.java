@@ -8,12 +8,13 @@ package com.kafka.producer;
 
 }
  */
+
 import kafka.producer.Partitioner;
 import kafka.utils.VerifiableProperties;
 
 public class SimplePartitioner implements Partitioner {
-    public SimplePartitioner (VerifiableProperties props) {
-          //TODO verify the properties
+    public SimplePartitioner(VerifiableProperties props) {
+        //TODO verify the properties
     }
 
     @Override
@@ -22,7 +23,7 @@ public class SimplePartitioner implements Partitioner {
         int partition = 0;
         int offset = key.lastIndexOf('.');
         if (offset > 0) {
-            partition = Integer.parseInt( key.substring(offset+1)) % numPartitions;
+            partition = Integer.parseInt(key.substring(offset + 1)) % numPartitions;
         }
         return partition;
     }

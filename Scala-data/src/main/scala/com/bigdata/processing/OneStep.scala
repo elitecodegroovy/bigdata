@@ -3,8 +3,9 @@
  * User: JohnLiu
  * Scala programming script
  */
-class OneStep{
+class OneStep {
   val greet = "Welcome to Scala programming world!"
+
   def say() = println(greet);
 }
 

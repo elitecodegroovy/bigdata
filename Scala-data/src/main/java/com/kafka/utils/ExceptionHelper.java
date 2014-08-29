@@ -25,8 +25,8 @@ public class ExceptionHelper {
             if (supportsNestedThrowable()) {
                 try {
                     Method initCauseMethod =
-                            exception.getClass().getMethod("initCause", new Class[] {Throwable.class});
-                    initCauseMethod.invoke(exception, new Object[] {cause});
+                            exception.getClass().getMethod("initCause", new Class[]{Throwable.class});
+                    initCauseMethod.invoke(exception, new Object[]{cause});
                 } catch (Exception e) {
                     getLog().warn(
                             "Unable to invoke initCause() method on class: " +
@@ -45,8 +45,8 @@ public class ExceptionHelper {
         if (supportsNestedThrowable()) {
             try {
                 Method getCauseMethod =
-                        exception.getClass().getMethod("getCause", (Class[])null);
-                return (Throwable)getCauseMethod.invoke(exception, (Object[])null);
+                        exception.getClass().getMethod("getCause", (Class[]) null);
+                return (Throwable) getCauseMethod.invoke(exception, (Object[]) null);
             } catch (Exception e) {
                 getLog().warn(
                         "Unable to invoke getCause() method on class: " +
@@ -64,8 +64,8 @@ public class ExceptionHelper {
     public static synchronized boolean supportsNestedThrowable() {
         if (supportsNestedThrowable == null) {
             try {
-                Throwable.class.getMethod("initCause", new Class[] {Throwable.class});
-                Throwable.class.getMethod("getCause", (Class[])null);
+                Throwable.class.getMethod("initCause", new Class[]{Throwable.class});
+                Throwable.class.getMethod("getCause", (Class[]) null);
                 supportsNestedThrowable = Boolean.TRUE;
                 getLog().debug("Detected JDK support for nested exceptions.");
             } catch (NoSuchMethodException e) {

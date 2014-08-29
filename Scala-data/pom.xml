@@ -1,290 +1,295 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>com</groupId>
-    <artifactId>bigdata</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
-  </parent>
-  
-  <groupId>com.scala</groupId>
-  <artifactId>scala-data</artifactId>
-  <packaging>war</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>scala-data Maven Webapp</name>
-  <url>http://maven.apache.org</url>
+    <parent>
+        <groupId>com</groupId>
+        <artifactId>bigdata</artifactId>
+        <version>0.1.0-SNAPSHOT</version>
+    </parent>
 
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <scope>test</scope>
-    </dependency>
+    <groupId>com.scala</groupId>
+    <artifactId>scala-data</artifactId>
+    <packaging>war</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>scala-data Maven Webapp</name>
+    <url>http://maven.apache.org</url>
 
-      <!--
-          Core utilities used by other modules.
-          Define this if you use Spring Utility APIs (org.springframework.core.*/org.springframework.util.*)
-      -->
-      <dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-core</artifactId>
-      </dependency>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
 
-      <!--
-          Expression Language (depends on core)
-          Define this if you use Spring Expression APIs (org.springframework.expression.*)
-      -->
-      <dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-expression</artifactId>
-      </dependency>
+        <!--
+            Core utilities used by other modules.
+            Define this if you use Spring Utility APIs (org.springframework.core.*/org.springframework.util.*)
+        -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+        </dependency>
 
-      <!--
-          Bean Factory and JavaBeans utilities (depends on core)
-          Define this if you use Spring Bean APIs (org.springframework.beans.*)
-      -->
-      <dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-beans</artifactId>
-      </dependency>
+        <!--
+            Expression Language (depends on core)
+            Define this if you use Spring Expression APIs (org.springframework.expression.*)
+        -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-expression</artifactId>
+        </dependency>
 
-      <!--
-          Aspect Oriented Programming (AOP) Framework (depends on core, beans)
-          Define this if you use Spring AOP APIs (org.springframework.aop.*)
-      -->
-      <dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-aop</artifactId>
-      </dependency>
+        <!--
+            Bean Factory and JavaBeans utilities (depends on core)
+            Define this if you use Spring Bean APIs (org.springframework.beans.*)
+        -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+        </dependency>
 
-      <!--
-          Application Context (depends on core, expression, aop, beans)
-          This is the central artifact for Spring's Dependency Injection Container and is generally always defined
-      -->
-      <dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-context</artifactId>
-      </dependency>
+        <!--
+            Aspect Oriented Programming (AOP) Framework (depends on core, beans)
+            Define this if you use Spring AOP APIs (org.springframework.aop.*)
+        -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+        </dependency>
 
-      <!--
-          Various Application Context utilities, including EhCache, JavaMail, Quartz, and Freemarker integration
-          Define this if you need any of these integrations
-      -->
-      <dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-context-support</artifactId>
-      </dependency>
+        <!--
+            Application Context (depends on core, expression, aop, beans)
+            This is the central artifact for Spring's Dependency Injection Container and is generally always defined
+        -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
 
-      <!--
-          Transaction Management Abstraction (depends on core, beans, aop, context)
-          Define this if you use Spring Transactions or DAO Exception Hierarchy
-          (org.springframework.transaction.*/org.springframework.dao.*)
-      -->
-      <dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-tx</artifactId>
-      </dependency>
+        <!--
+            Various Application Context utilities, including EhCache, JavaMail, Quartz, and Freemarker integration
+            Define this if you need any of these integrations
+        -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+        </dependency>
 
-      <!--
-          JDBC Data Access Library (depends on core, beans, context, transaction)
-          Define this if you use Spring's JdbcTemplate API (org.springframework.jdbc.*)
-      -->
-      <dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-jdbc</artifactId>
-      </dependency>
+        <!--
+            Transaction Management Abstraction (depends on core, beans, aop, context)
+            Define this if you use Spring Transactions or DAO Exception Hierarchy
+            (org.springframework.transaction.*/org.springframework.dao.*)
+        -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+        </dependency>
 
-      <!--
-          Object-to-Relation-Mapping (ORM) integration with Hibernate, JPA, and iBatis.
-          (depends on core, beans, context, transaction)
-          Define this if you need ORM (org.springframework.orm.*)
-      -->
-      <dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-orm</artifactId>
-      </dependency>
+        <!--
+            JDBC Data Access Library (depends on core, beans, context, transaction)
+            Define this if you use Spring's JdbcTemplate API (org.springframework.jdbc.*)
+        -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+        </dependency>
 
-      <!--
-          Object-to-XML Mapping (OXM) abstraction and integration with JAXB, JiBX, Castor, XStream, and XML Beans.
-          (depends on core, beans, context)
-          Define this if you need OXM (org.springframework.oxm.*)
-      -->
-      <dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-oxm</artifactId>
-      </dependency>
+        <!--
+            Object-to-Relation-Mapping (ORM) integration with Hibernate, JPA, and iBatis.
+            (depends on core, beans, context, transaction)
+            Define this if you need ORM (org.springframework.orm.*)
+        -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+        </dependency>
 
-      <!--
-          Web app development utilities common across Servlet/Portlet environments (depends on core, beans, context)
-          Define this if you use Spring MVC, or wish to use Struts, JSF, or another web framework with Spring (org.springframework.web.*)
-      -->
-      <dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-web</artifactId>
-      </dependency>
+        <!--
+            Object-to-XML Mapping (OXM) abstraction and integration with JAXB, JiBX, Castor, XStream, and XML Beans.
+            (depends on core, beans, context)
+            Define this if you need OXM (org.springframework.oxm.*)
+        -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-oxm</artifactId>
+        </dependency>
 
-      <dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-webmvc</artifactId>
-          <type>jar</type>
-          <scope>compile</scope>
-      </dependency>
+        <!--
+            Web app development utilities common across Servlet/Portlet environments (depends on core, beans, context)
+            Define this if you use Spring MVC, or wish to use Struts, JSF, or another web framework with Spring (org.springframework.web.*)
+        -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
 
-      <!--
-          Support for testing Spring applications with tools such as JUnit and TestNG
-          This artifact is generally always defined with a 'test' scope for the integration testing framework and unit testing stubs
-      -->
-      <dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-test</artifactId>
-          <scope>test</scope>
-      </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
 
-      <!--hibernate-->
-      <dependency>
-          <groupId>org.hibernate.javax.persistence</groupId>
-          <artifactId>hibernate-jpa-2.0-api</artifactId>
-      </dependency>
-      <dependency>
-          <groupId>org.hibernate</groupId>
-          <artifactId>hibernate-core</artifactId>
-          <type>jar</type>
-          <scope>compile</scope>
-      </dependency>
+        <!--
+            Support for testing Spring applications with tools such as JUnit and TestNG
+            This artifact is generally always defined with a 'test' scope for the integration testing framework and unit testing stubs
+        -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>test</scope>
+        </dependency>
 
-      <dependency>
-          <groupId>org.hibernate</groupId>
-          <artifactId>hibernate-ehcache</artifactId>
-          <type>jar</type>
-          <scope>compile</scope>
-      </dependency>
-      <dependency>
-          <groupId>org.hibernate.common</groupId>
-          <artifactId>hibernate-commons-annotations</artifactId>
-          <type>jar</type>
-          <scope>compile</scope>
-      </dependency>
-	
-	<!-- Excel library --> 
-	<dependency>
-		<groupId>org.apache.poi</groupId>
-		<artifactId>poi</artifactId>
-		
-	</dependency>
+        <!--hibernate-->
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.0-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
 
-	<!-- Pdf library --> 
-	<dependency>
-		<groupId>com.lowagie</groupId>
-		<artifactId>itext</artifactId>
-		
-	</dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-ehcache</artifactId>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.common</groupId>
+            <artifactId>hibernate-commons-annotations</artifactId>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
 
-	<!-- JSTL --> 
-	<dependency>
-		<groupId>javax.servlet</groupId>
-		<artifactId>jstl</artifactId>
-		
-	</dependency>
-	
-	<dependency>
-		<groupId>taglibs</groupId>
-		<artifactId>standard</artifactId>
-		
-	</dependency>
-      <dependency>
-          <groupId>javax.servlet</groupId>
-          <artifactId>servlet-api</artifactId>
-          
-      </dependency>
+        <!-- Excel library -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
 
-      <dependency>
-          <groupId>org.scala-lang</groupId>
-          <artifactId>scala-library</artifactId>
-          
-      </dependency>
-      <!--jboss server vfs dependency-->
-      <dependency>
-          <groupId>org.jboss.snowdrop</groupId>
-          <artifactId>snowdrop-vfs</artifactId>
-      </dependency>
+        </dependency>
 
-      <!--spark core lib-->
-      <!--<dependency>-->
-          <!--<groupId>org.apache.spark</groupId>-->
-          <!--<artifactId>spark-core_2.10</artifactId>-->
-          <!---->
-      <!--</dependency>-->
-      <!--hadoop client lib-->
-      <!--<dependency>-->
-          <!--<groupId>org.apache.hadoop</groupId>-->
-          <!--<artifactId>hadoop-client</artifactId>-->
-          <!---->
-      <!--</dependency>-->
+        <!-- Pdf library -->
+        <dependency>
+            <groupId>com.lowagie</groupId>
+            <artifactId>itext</artifactId>
 
-       <!--Kafka lib-->
-      <dependency>
-          <groupId>org.apache.kafka</groupId>
-          <artifactId>kafka_2.10</artifactId>
-          <version>0.8.1.1</version>
-          <scope>compile</scope>
-          <exclusions>
-              <exclusion>
-                  <artifactId>jmxri</artifactId>
-                  <groupId>com.sun.jmx</groupId>
-              </exclusion>
-              <exclusion>
-                  <artifactId>jms</artifactId>
-                  <groupId>javax.jms</groupId>
-              </exclusion>
-              <exclusion>
-                  <artifactId>jmxtools</artifactId>
-                  <groupId>com.sun.jdmk</groupId>
-              </exclusion>
-          </exclusions>
-      </dependency>
+        </dependency>
 
-      <dependency>
-          <groupId>org.slf4j</groupId>
-          <artifactId>slf4j-api</artifactId>
-      </dependency>
-  </dependencies>
+        <!-- JSTL -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+
+        </dependency>
+
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+
+        </dependency>
+
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+
+        </dependency>
+        <!--jboss server vfs dependency-->
+        <dependency>
+            <groupId>org.jboss.snowdrop</groupId>
+            <artifactId>snowdrop-vfs</artifactId>
+        </dependency>
+
+        <!--spark core lib-->
+        <!--<dependency>-->
+        <!--<groupId>org.apache.spark</groupId>-->
+        <!--<artifactId>spark-core_2.10</artifactId>-->
+        <!---->
+        <!--</dependency>-->
+        <!--hadoop client lib-->
+        <!--<dependency>-->
+        <!--<groupId>org.apache.hadoop</groupId>-->
+        <!--<artifactId>hadoop-client</artifactId>-->
+        <!---->
+        <!--</dependency>-->
+
+        <!--Kafka lib-->
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka_2.10</artifactId>
+            <version>0.8.1.1</version>
+            <scope>compile</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>jmxri</artifactId>
+                    <groupId>com.sun.jmx</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>jms</artifactId>
+                    <groupId>javax.jms</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>jmxtools</artifactId>
+                    <groupId>com.sun.jdmk</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!--slf4j-log4j-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+    </dependencies>
 
 
-  <build>
-    <finalName>scala-data</finalName>
-      <plugins>
-          <plugin>
-              <groupId>org.scala-tools</groupId>
-              <artifactId>maven-scala-plugin</artifactId>
+    <build>
+        <finalName>scala-data</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.scala-tools</groupId>
+                <artifactId>maven-scala-plugin</artifactId>
 
-              <executions>
-                  <execution>
-                      <id>compile</id>
-                      <goals>
-                          <goal>compile</goal>
-                      </goals>
-                      <phase>compile</phase>
-                  </execution>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                        <phase>compile</phase>
+                    </execution>
 
-                  <execution>
-                      <id>test-compile</id>
-                      <goals>
-                          <goal>testCompile</goal>
-                      </goals>
-                      <phase>test-compile</phase>
-                  </execution>
+                    <execution>
+                        <id>test-compile</id>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                        <phase>test-compile</phase>
+                    </execution>
 
-                  <execution>
-                      <phase>process-resources</phase>
-                      <goals>
-                          <goal>compile</goal>
-                      </goals>
-                  </execution>
-              </executions>
-          </plugin>
-      </plugins>
-  </build>
+                    <execution>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
     <!--plguin repo-->
     <pluginRepositories>
         <pluginRepository>

@@ -11,29 +11,29 @@
         http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 
     <!--name handler mapping-->
-	<!--<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />-->
-    <context:component-scan base-package="com.ispring.common.controller" />
-    <mvc:annotation-driven />
+    <!--<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />-->
+    <context:component-scan base-package="com.ispring.common.controller"/>
+    <mvc:annotation-driven/>
 
-    <bean class="com.ispring.common.controller.RevenueReportController" />
-    
+    <bean class="com.ispring.common.controller.RevenueReportController"/>
+
     <bean class="org.springframework.web.servlet.view.XmlViewResolver">
-	   <property name="location">
-	       <value>/WEB-INF/spring-excel-views.xml</value>
-	   </property>
-	   <property name="order" value="0" />
-	</bean>
+        <property name="location">
+            <value>/WEB-INF/spring-excel-views.xml</value>
+        </property>
+        <property name="order" value="0"/>
+    </bean>
 
     <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-        <property name="order" value="1" />
-        <property name="ignoreAcceptHeader" value="true" />
-        <property name="defaultContentType" value="text/html" />
-        <property name="favorParameter" value="false" />
+        <property name="order" value="1"/>
+        <property name="ignoreAcceptHeader" value="true"/>
+        <property name="defaultContentType" value="text/html"/>
+        <property name="favorParameter" value="false"/>
         <property name="mediaTypes">
             <map>
-                <entry key="html" value="text/html" />
-                <entry key="json" value="application/json" />
-                <entry key="xml" value="application/xml" />
+                <entry key="html" value="text/html"/>
+                <entry key="json" value="application/json"/>
+                <entry key="xml" value="application/xml"/>
                 <entry key="xls" value="application/vnd.ms-excel"/>
             </map>
         </property>
@@ -47,15 +47,15 @@
                     <constructor-arg>
                         <bean class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
                             <!--<property name="packagesToScan">-->
-                                <!--<list>-->
-                                    <!--<value>com.ispring.model</value>-->
-                                <!--</list>-->
+                            <!--<list>-->
+                            <!--<value>com.ispring.model</value>-->
+                            <!--</list>-->
                             <!--</property>-->
-                                <property name="classesToBeBound">
-                                    <list>
-                                        <value>com.ispring.model.hr.Fruit</value>
-                                    </list>
-                                </property>
+                            <property name="classesToBeBound">
+                                <list>
+                                    <value>com.ispring.model.hr.Fruit</value>
+                                </list>
+                            </property>
                         </bean>
                     </constructor-arg>
                 </bean>
@@ -65,30 +65,30 @@
             </list>
         </property>
         <!--<property name="viewResolvers">-->
-            <!--<list>-->
-                <!--<bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">-->
-                    <!--<property name="cache" value="true" />-->
-                    <!--<property name="prefix" value="" />-->
-                    <!--<property name="suffix" value=".ftl" />-->
-                    <!--<property name="exposeSpringMacroHelpers" value="true" />-->
-                    <!--<property name="contentType" value="text/html;charset=UTF-8" />-->
-                    <!--<property name="exposeRequestAttributes" value="true" />-->
-                    <!--<property name="exposeSessionAttributes" value="true" />-->
-                <!--</bean>-->
-            <!--</list>-->
+        <!--<list>-->
+        <!--<bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">-->
+        <!--<property name="cache" value="true" />-->
+        <!--<property name="prefix" value="" />-->
+        <!--<property name="suffix" value=".ftl" />-->
+        <!--<property name="exposeSpringMacroHelpers" value="true" />-->
+        <!--<property name="contentType" value="text/html;charset=UTF-8" />-->
+        <!--<property name="exposeRequestAttributes" value="true" />-->
+        <!--<property name="exposeSessionAttributes" value="true" />-->
+        <!--</bean>-->
+        <!--</list>-->
         <!--</property>-->
     </bean>
 
     <!-- If no extension matched, use JSP view -->
-	<bean id="viewResolver"
-      	class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">
-           <value>/WEB-INF/pages/</value>
-         </property>
-        <property name="suffix">
-           <value>.jsp</value>
+            <value>/WEB-INF/pages/</value>
         </property>
-        <property name="order" value="1" />
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+        <property name="order" value="1"/>
     </bean>
-	
+
 </beans>

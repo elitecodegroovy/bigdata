@@ -7,16 +7,17 @@
 <h3>Revenue Report</h3>
 
 <table border="1px" cellpadding="8px">
-<tr>
-<td>Month</td><td>Revenue</td>
-</tr>
+    <tr>
+        <td>Month</td>
+        <td>Revenue</td>
+    </tr>
 
-<c:forEach items="${revenueData}" var="current">
-<tr>
-   <td><c:out value="${current.key}" /></td>
-   <td><c:out value="${current.value}" /></td>
-</tr>
-</c:forEach>
+    <c:forEach items="${revenueData}" var="current">
+        <tr>
+            <td><c:out value="${current.key}"/></td>
+            <td><c:out value="${current.value}"/></td>
+        </tr>
+    </c:forEach>
 </table>
 
 </body>

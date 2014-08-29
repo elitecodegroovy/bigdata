@@ -12,7 +12,7 @@ public class Greeting {
         System.loadLibrary("GreetingImpl");
     } //2
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         Greeting hello = new Greeting();
         hello.sayHi(args[0], Integer.parseInt(args[1])); //3
     }

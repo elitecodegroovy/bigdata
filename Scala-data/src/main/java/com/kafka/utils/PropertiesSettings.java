@@ -8,6 +8,7 @@ package com.kafka.utils;
 public interface PropertiesSettings {
 
     final static String CONSUMER_FILE_NAME = "consumer.properties";
-    final static String PRODUCER_FILE_NAME= "producer.properties";
+    final static String PRODUCER_FILE_NAME = "producer.properties";
     final static String TOPIC_NAME = "cluster_statistics_topic";
+    final static String TOPIC_A = "cluster_statistics_topic_A";
 }

@@ -1,6 +1,6 @@
 package com.bigdata.processing
 
-import java.net.{Socket, ServerSocket}
+import java.net.{ServerSocket, Socket}
 import java.util.concurrent.{ExecutorService, Executors}
 
 /**
@@ -12,12 +12,12 @@ class NetworkService(port: Int, poolSize: Int) extends Runnable {
   val pool: ExecutorService = Executors.newFixedThreadPool(poolSize)
 
   def run() {
-    println(""+ System.currentTimeMillis()+ "--" + Thread.currentThread().getName())
+    println("" + System.currentTimeMillis() + "--" + Thread.currentThread().getName())
     try {
       while (true) {
         // This will block until a connection comes in.
         val socket = serverSocket.accept()
-        println("serverSocket.accept():"+ System.currentTimeMillis()+ "--" + Thread.currentThread().getName())
+        println("serverSocket.accept():" + System.currentTimeMillis() + "--" + Thread.currentThread().getName())
         pool.execute(new Handler(socket))
       }
     } finally {

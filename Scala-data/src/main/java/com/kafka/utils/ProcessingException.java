@@ -5,7 +5,7 @@ package com.kafka.utils;
  * @version 0.1.0
  * @date 2014/8/27
  */
-public class ProcessingException  extends Exception {
+public class ProcessingException extends Exception {
     private Throwable cause;
 
     public ProcessingException() {

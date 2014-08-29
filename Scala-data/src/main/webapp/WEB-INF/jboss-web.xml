@@ -3,5 +3,5 @@
 <jboss-web>
     <context-root>/</context-root>
     <virtual-host>localhost</virtual-host>
-<!--    <virtual-host>www.flyme.com</virtual-host>-->
+    <!--    <virtual-host>www.flyme.com</virtual-host>-->
 </jboss-web>

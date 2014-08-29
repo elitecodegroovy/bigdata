@@ -3,13 +3,16 @@
  * Date: 14-7-25
  */
 
-abstract class Shape{
-  def getArea():Int
+abstract class Shape {
+  def getArea(): Int
 }
 
 class Circle(r: Int) extends Shape {
-  def getArea(): Int = { r*r*r}
+  def getArea(): Int = {
+    r * r * r
+  }
 }
+
 //val c = new Circle(9)
 //println(c.getArea())
 //val numbers = List(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)

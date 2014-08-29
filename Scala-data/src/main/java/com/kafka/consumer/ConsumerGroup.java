@@ -5,6 +5,7 @@ package com.kafka.consumer;
  * @version 0.1.0
  * @date 2014/8/23
  */
+
 import com.kafka.utils.PropertiesParser;
 import com.kafka.utils.PropertiesSettings;
 import kafka.consumer.ConsumerConfig;
@@ -26,9 +27,9 @@ public class ConsumerGroup {
     private final ConsumerConnector consumer;
 
     private final String topic;
-    private  ExecutorService executor;
+    private ExecutorService executor;
 
-    public ConsumerGroup( String topic) {
+    public ConsumerGroup(String topic) {
         consumer = kafka.consumer.Consumer.createJavaConsumerConnector(
                 createConsumerConfig());
         this.topic = topic;
@@ -54,7 +55,7 @@ public class ConsumerGroup {
         for (final KafkaStream stream : streams) {
             executor.submit(new ConsumerThread(stream, threadNumber));
             threadNumber++;
-            log.info("loop index:"+ threadNumber) ;
+            log.info("loop index:" + threadNumber);
         }
     }
 
@@ -70,7 +71,7 @@ public class ConsumerGroup {
 //        String topic = "cluster_topic";
         int threads = Integer.parseInt("4");
 
-        ConsumerGroup group = new ConsumerGroup( PropertiesSettings.TOPIC_NAME);
+        ConsumerGroup group = new ConsumerGroup(PropertiesSettings.TOPIC_NAME);
         group.run(threads);
 
         try {

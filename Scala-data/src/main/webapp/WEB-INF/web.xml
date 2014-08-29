@@ -4,26 +4,26 @@
            http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
 
-  <display-name>scala-data center</display-name>
+    <display-name>scala-data center</display-name>
 
-  <servlet>
-  	<servlet-name>mvc-dispatcher</servlet-name>
-    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-      <!--you can define it with specified file path-->
-      <!--<init-param>-->
-          <!--<param-name>contextConfigLocation</param-name>-->
-          <!--<param-value>/WEB-INF/classes/mvc-dispatcher.xml</param-value>-->
-      <!--</init-param>-->
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  
-  <servlet-mapping>
- 	<servlet-name>mvc-dispatcher</servlet-name>
-    <url-pattern>*.html</url-pattern>
-    <url-pattern>*.json</url-pattern>
-    <url-pattern>*.excel</url-pattern>
-    <url-pattern>*.word</url-pattern>
-  </servlet-mapping>
+    <servlet>
+        <servlet-name>mvc-dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!--you can define it with specified file path-->
+        <!--<init-param>-->
+        <!--<param-name>contextConfigLocation</param-name>-->
+        <!--<param-value>/WEB-INF/classes/mvc-dispatcher.xml</param-value>-->
+        <!--</init-param>-->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>mvc-dispatcher</servlet-name>
+        <url-pattern>*.html</url-pattern>
+        <url-pattern>*.json</url-pattern>
+        <url-pattern>*.excel</url-pattern>
+        <url-pattern>*.word</url-pattern>
+    </servlet-mapping>
 
     <context-param>
         <param-name>log4jConfigLocation</param-name>
@@ -38,17 +38,17 @@
         </param-value>
     </context-param>
 
-  <context-param>
-	<param-name>contextConfigLocation</param-name>
-	<param-value>/WEB-INF/mvc-dispatcher-servlet.xml</param-value>
-  </context-param>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/mvc-dispatcher-servlet.xml</param-value>
+    </context-param>
 
-  <!--  log4j will bu  initialized if the app system boots-->
-  <listener>
-    <listener-class>
-      org.springframework.web.context.ContextLoaderListener
-    </listener-class>
-  </listener>
+    <!--  log4j will bu  initialized if the app system boots-->
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
     <listener>
         <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
     </listener>
