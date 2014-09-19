@@ -3,7 +3,7 @@ package com.api;
 /**
  * @author JohnLiu
  * @version 0.1.0
- * @date 2014/8/24
+ * @date 2014/1/24
  */
 public class Greeting {
     public native void sayHi(String who, int times); //1
